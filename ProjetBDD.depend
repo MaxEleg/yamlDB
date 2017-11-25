@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1511264572 source:c:\users\chris\desktop\projetbdd\main.c
+	<stdio.h>
+	<stdlib.h>
+	"string.c"
+	"string.h"
+
+1511346561 c:\users\chris\desktop\projetbdd\string.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+
+1511263743 c:\users\chris\desktop\projetbdd\string.h
+
