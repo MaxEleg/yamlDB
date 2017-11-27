@@ -5,10 +5,11 @@
 	"string.c"
 	"string.h"
 
-1511346561 c:\users\chris\desktop\projetbdd\string.c
+1511706875 c:\users\chris\desktop\projetbdd\string.c
 	<stdio.h>
 	<stdlib.h>
+	<dirent.h>
 	"string.h"
 
-1511263743 c:\users\chris\desktop\projetbdd\string.h
+1511706520 c:\users\chris\desktop\projetbdd\string.h
 

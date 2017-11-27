@@ -3,7 +3,10 @@
 int err;
 int compt;
 char nom;
+char systemRM;
 int c;
+char *systemRm1;
+char *systemRm2;
 
 void OpenBDD();
 void DeleteBDD();
