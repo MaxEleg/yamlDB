@@ -15,5 +15,6 @@ void DeleteTable();
 void CleanBuffer();
 char StringWithSpace();
 char StringWithoutSpace();
+void startApp();
 
 #endif // STRING_H_INCLUDED
