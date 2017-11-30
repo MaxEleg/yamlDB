@@ -1,0 +1,13 @@
+NomTable:\n
+__columns:\n
+____NomColonne:\n
+______type:_!!str\n
+____NomColonne2:\n
+______type:_!!int\n
+\n
+Data:\n
+__line:\n
+___NomColonne:_!!str_test\n
+___NomColonne2:_!!int_12\n
+__line:\n
+___.....
