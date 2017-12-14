@@ -1,0 +1,12 @@
+test:
+  columns:
+    test:
+      type: !!char
+    test2:
+      type: !!int
+
+Data:
+  Line:
+   test: !!char b
+   test2: !!int 23
+  Line:

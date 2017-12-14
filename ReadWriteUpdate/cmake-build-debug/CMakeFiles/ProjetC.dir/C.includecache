@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/ProjetC/linkedList.c
+stdio.h
+-
+stdlib.h
+-
+linkedList.h
+D:/ProjetC/linkedList.h
+
+D:/ProjetC/linkedList.h
+
+D:/ProjetC/rwu.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+linkedList.h
+D:/ProjetC/linkedList.h
+rwu.h
+D:/ProjetC/rwu.h
+
+D:/ProjetC/rwu.h
+linkedList.h
+D:/ProjetC/linkedList.h
+
+D:/ProjetC/testrwu.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+rwu.h
+D:/ProjetC/rwu.h
+
