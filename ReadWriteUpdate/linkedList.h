@@ -15,7 +15,8 @@ typedef struct Column {
     int intType;
     float floatType;
     char *stringType;
-    int lineEnd;
+    int firstColumn;
+    int lastColumn;
 }Column;
 
 typedef struct LinkedList {
@@ -24,6 +25,8 @@ typedef struct LinkedList {
 }LinkedList;
 
 LinkedList *newElement(int type, int stringSize);
+
+void addNewElement(LinkedList *ll, int type, int stringSize);
 
 void freeLinkedList(LinkedList *ll);
 

@@ -25,7 +25,7 @@ int writeTable(char *tableName, char **columnName,char **columnType, int columnA
     for(int i = 0; i < columnAmount; i++){
         fprintf(yaml, "    %s:\n      type: %s\n", columnName[i], columnType[i]);
     }
-    fprintf(yaml, "\nData:\n  Line:\n");
+    fprintf(yaml, "\nData:\n");
     writeLine(yaml, ll);
 
     fclose(yaml);
@@ -36,25 +36,31 @@ int writeTable(char *tableName, char **columnName,char **columnType, int columnA
 int writeLine(FILE *yaml, LinkedList *ll){
     while(ll != NULL) {
         if( ll->data.charType != 0){
-            if( ll->data.lineEnd != TRUE){
+            if( ll->data.firstColumn == TRUE){
+                fprintf(yaml, "  Line:\n   %s: !!char %c\n", ll->data.name, ll->data.charType);
+            } else if( ll->data.lastColumn != TRUE){
                 fprintf(yaml, "   %s: !!char %c\n", ll->data.name, ll->data.charType);
-            } else{
+            } else if( ll->next != NULL){
                 fprintf(yaml, "   %s: !!char %c\n  Line:\n", ll->data.name, ll->data.charType);
+            }else{
+                fprintf(yaml, "   %s: !!char %c\n", ll->data.name, ll->data.charType);
             }
         } else if( ll->data.intType != 0){
-            if( ll->data.lineEnd != TRUE){
+            if( ll->data.lastColumn != TRUE){
                 fprintf(yaml, "   %s: !!int %d\n", ll->data.name, ll->data.intType);
-            } else {
+            } else if( ll->next != NULL){
                 fprintf(yaml, "   %s: !!int %d\n  Line:\n", ll->data.name, ll->data.intType);
+            }else{
+                fprintf(yaml, "   %s: !!int %d\n", ll->data.name, ll->data.intType);
             }
         } else if( ll->data.floatType != 0){
-            if( ll->data.lineEnd != TRUE){
+            if( ll->data.lastColumn != TRUE){
                 fprintf(yaml, "   %s: !!float %f\n", ll->data.name, ll->data.floatType);
             } else{
                 fprintf(yaml, "   %s: !!float %f\n  Line:\n", ll->data.name, ll->data.floatType);
             }
         } else if( ll->data.stringType != NULL){
-            if( ll->data.lineEnd != TRUE){
+            if( ll->data.lastColumn != TRUE){
                 fprintf(yaml, "   %s: !!str %s\n  Line:\n", ll->data.name, ll->data.stringType);
             } else{
                 fprintf(yaml, "   %s: !!str %s\n", ll->data.name, ll->data.stringType);
@@ -62,6 +68,18 @@ int writeLine(FILE *yaml, LinkedList *ll){
         }
         ll = ll->next;
     }
+
+    return EXIT_SUCCESS;
+}
+
+int addLine(char *fileName, LinkedList *ll){
+    FILE *yaml = NULL;
+
+    yaml = fopen(fileName, "a");
+
+    writeLine(yaml,ll);
+
+    fclose(yaml);
 
     return EXIT_SUCCESS;
 }

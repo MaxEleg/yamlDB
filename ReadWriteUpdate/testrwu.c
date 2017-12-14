@@ -8,10 +8,12 @@ int main() {
     LinkedList *head = newElement(CHAR, 0);
     head->data.charType = 'b';
     head->data.name = "test";
-    head->next = newElement(INT, 0);
+    head->data.firstColumn = TRUE;
+    addNewElement(head, INT, 0);
+    //head->next = newElement(INT, 0);
     head->next->data.intType = 23;
     head->next->data.name = "test2";
-    head->next->data.lineEnd = TRUE;
+    head->next->data.lastColumn = TRUE;
     char **nomcolonne = NULL;
     char **typetable = NULL;
 
@@ -26,7 +28,8 @@ int main() {
     typetable[1] = malloc(sizeof(char) * 6);
     typetable[0] = "!!char";
     typetable[1] = "!!int";
-    writeTable("test", nomcolonne, typetable, 2, head);
+    //writeTable("test", nomcolonne, typetable, 2, head);
+    addLine("test.yaml",head);
 
     printLinkedList(head);
     freeLinkedList(head);

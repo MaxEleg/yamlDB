@@ -14,7 +14,7 @@ int writeLine(FILE *yaml, LinkedList *ll);
 
 int readTable();
 
-int addLine(LinkedList *ll);
+int addLine(char *fileName, LinkedList *ll);
 
 int removeLine();
 

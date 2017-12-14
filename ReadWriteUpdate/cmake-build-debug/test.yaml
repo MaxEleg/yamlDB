@@ -10,3 +10,5 @@ Data:
    test: !!char b
    test2: !!int 23
   Line:
+   test: !!char b
+   test2: !!int 23

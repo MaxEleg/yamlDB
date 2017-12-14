@@ -14,30 +14,42 @@ LinkedList *newElement(int type ,int stringSize) {
             ll->data.intType = 0;
             ll->data.floatType = 0;
             ll->data.stringType = NULL;
-            ll->data.lineEnd = FALSE;
+            ll->data.firstColumn = FALSE;
+            ll->data.lastColumn = FALSE;
             break;
         case INT :
             ll->data.charType = 0;
             ll->data.floatType = 0;
             ll->data.stringType = NULL;
-            ll->data.lineEnd = FALSE;
+            ll->data.firstColumn = FALSE;
+            ll->data.lastColumn = FALSE;
             break;
         case FLOAT :
             ll->data.charType = 0;
             ll->data.intType = 0;
             ll->data.stringType = NULL;
-            ll->data.lineEnd = FALSE;
+            ll->data.firstColumn = FALSE;
+            ll->data.lastColumn = FALSE;
             break;
         case STRING :
             ll->data.charType = 0;
             ll->data.intType = 0;
             ll->data.floatType = 0;
             ll->data.stringType = malloc(sizeof(char) * (stringSize + 1));
-            ll->data.lineEnd = FALSE;
+            ll->data.firstColumn = FALSE;
+            ll->data.lastColumn = FALSE;
             break;
     }
     return ll;
 }
+void addNewElement(LinkedList *ll, int type, int stringSize){
+    while(ll->next != NULL){
+        ll =  ll->next;
+    }
+    ll->next = newElement(type, stringSize);
+}
+
+
 
 void freeLinkedList(LinkedList *ll) {
     if(ll->next != NULL) {
