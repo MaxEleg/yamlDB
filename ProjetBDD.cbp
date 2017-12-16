@@ -31,12 +31,20 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="main.c">
+		<Unit filename="controllers/core.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="string.c">
+		<Unit filename="controllers/database.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="controllers/functions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="controllers/yamlDb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="string.h">
 			<Option target="&lt;{~None~}&gt;" />

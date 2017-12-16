@@ -4,7 +4,11 @@
 
 int main()
 {
-    startApp();
+    //startApp();
+    YamlContainer * yamlArray = NULL;
+
+    yamlArray = loadYamlDb("C:/Users/Max/Desktop/wd/user.yml");
+    showYamlContainer(yamlArray);
 
     return 0;
 }
