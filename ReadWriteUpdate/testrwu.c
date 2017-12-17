@@ -6,32 +6,34 @@
 int main() {
 
     LinkedList *head = newElement(CHAR, 0);
+    LinkedList *header = NULL;
     head->data.charType = 'b';
-    head->data.name = "test";
-    head->data.firstColumn = TRUE;
+    head->name = "test";
+    head->firstColumn = TRUE;
     addNewElement(head, INT, 0);
     //head->next = newElement(INT, 0);
     head->next->data.intType = 23;
-    head->next->data.name = "test2";
-    head->next->data.lastColumn = TRUE;
+    head->next->name = "test2";
+    head->next->lastColumn = TRUE;
+
     char **nomcolonne = NULL;
     char **typetable = NULL;
 
     nomcolonne = malloc(sizeof(char*) * 2);
     nomcolonne[0] = malloc(sizeof(char) * 6);
     nomcolonne[1] = malloc(sizeof(char) * 6);
-    strcpy(nomcolonne[0], head->data.name);
+    strcpy(nomcolonne[0], head->name);
     //nomcolonne[0][4] = '\0';
-    nomcolonne[1] = head->next->data.name;
+    nomcolonne[1] = head->next->name;
     typetable = malloc(sizeof(char*) * 2);
     typetable[0] = malloc(sizeof(char) * 6);
     typetable[1] = malloc(sizeof(char) * 6);
     typetable[0] = "!!char";
     typetable[1] = "!!int";
     //writeTable("test", nomcolonne, typetable, 2, head);
-    addLine("test.yaml",head);
-
-    printLinkedList(head);
+    //addLine("test.yaml",head);
+    header = readTableHeader("test.yaml");
+    //printLinkedList(head);
     freeLinkedList(head);
 
     //test writeTable

@@ -12,6 +12,8 @@ int writeTable(char *tableName, char **columnName,char **columnType, int columnA
 
 int writeLine(FILE *yaml, LinkedList *ll);
 
+LinkedList *readTableHeader(char *tableName);
+
 int readTable();
 
 int addLine(char *fileName, LinkedList *ll);
