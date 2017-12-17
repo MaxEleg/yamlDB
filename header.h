@@ -13,6 +13,7 @@
 
 int err;
 int compt;
+char colonne;
 char nom;
 char systemRM;
 int c;
@@ -24,9 +25,9 @@ void DeleteBDD();
 void AddTable();
 void DeleteTable();
 void CleanBuffer();
-char StringWithSpace();
-char StringWithoutSpace();
+void WriteTable(char*);
 void startApp();
+void AddBDD();
 
 typedef struct YamlKey YamlKey;
 struct YamlKey {

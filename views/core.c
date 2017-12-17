@@ -17,4 +17,8 @@
     }
     if(choice == 5){
         DeleteBDD();
+<<<<<<< HEAD
     }
+=======
+    }
+>>>>>>> origin/master
