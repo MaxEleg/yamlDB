@@ -1,0 +1,5 @@
+NomTable:
+  columns:
+    NomColonne: var1
+      type: !!int
+Data:

@@ -42,3 +42,34 @@
 	<dirent.h>
 	"header.h"
 
+1513536383 source:d:\yamldb\yamldb\controllers\core.c
+	"../header.h"
+
+1513541765 d:\yamldb\yamldb\header.h
+	<math.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<assert.h>
+	<limits.h>
+	<stdbool.h>
+	<stdio.h>
+	<string.h>
+
+1513542520 source:d:\yamldb\yamldb\controllers\database.c
+	<stdio.h>
+	<stdlib.h>
+	<dirent.h>
+	"../header.h"
+
+1513536383 source:d:\yamldb\yamldb\controllers\functions.c
+	"../header.h"
+
+1513536383 source:d:\yamldb\yamldb\controllers\yamldb.c
+	"../header.h"
+
+1513542538 source:d:\yamldb\yamldb\main.c
+	<stdio.h>
+	<stdlib.h>
+	"./header.h"
+
