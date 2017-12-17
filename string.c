@@ -390,6 +390,7 @@ void WriteTable(char* nom){
         }else{
              printf("Le mot contient des caracteres interdits \n");
         }
+        CleanBuffer();
         }while(choice != 1 && choice != 2 && choice != 3 && choice != 4);
         do{
         printf("Tapez 1 pour un rajouter une colonne \nTapez 2 pour arreter\n");
