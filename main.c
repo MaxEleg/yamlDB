@@ -5,25 +5,35 @@
 
 int main()
 {
-    int choice = 0;
-    printf("Tapez 1 pour ajouter une bdd \nTapez 2 pour utiliser une bdd existante \nTapez 3 pour ajouter une table\nTapez 4 pour supprimer une table \nTapez 5 pour supprimer une bdd\n");
+    int choice;
+    do{
+    choice = 0;
+    printf("Tapez 1 pour ajouter une bdd \nTapez 2 pour utiliser une bdd existante \nTapez 3 pour ajouter une table\nTapez 4 pour supprimer une table \nTapez 5 pour supprimer une bdd\nTapez 6 pour quitter\n");
     scanf("%d", &choice);
     printf("Vous avez selectionnez : %d \n",choice);
     CleanBuffer();
     if(choice == 1){
         AddBDD();
     }
-    if(choice == 2){
+    else if(choice == 2){
         OpenBDD();
     }
-    if(choice == 3){
+    else if(choice == 3){
         AddTable();
     }
-    if(choice == 4){
+    else if(choice == 4){
         DeleteTable();
     }
-    if(choice == 5){
+    else if(choice == 5){
         DeleteBDD();
     }
-    return 0;
+    else if(choice == 6 ){
+        return 0;
+    }
+    else{
+        printf("L'entree contient des caracteres interdits");
+        choice = 1;
+    }
+    CleanBuffer();
+    }while(choice == 1 || choice == 2 || choice == 3 || choice == 4);
 }
