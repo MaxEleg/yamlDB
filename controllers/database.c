@@ -403,6 +403,89 @@ void WriteTable(char* nom, char* nom2){
         CleanBuffer();
         }while(choice != 1 && choice != 2);
     }while(choice != 2);
+    fputc('#',fichier);
     fclose(fichier);
 }
 
+void addLine(){
+    char nom [1000] = {0};
+    printf("\nIndiquez la BBD a ouvrir : ");
+    fgets(nom, sizeof(nom), stdin);
+    printf("Vous avez ecris : %s \n",nom);
+    int i = 0;
+    int compt = 0;
+    int err = 0;
+    for(i ; i<= 100 ; i++){
+        if((nom[i] <= 90 && nom[i] >= 65) || (nom[i] <= 122 && nom[i] >= 97) || (nom[i] == 10)){
+            compt ++;
+        }
+        else if(nom[i] == 0){
+            break;
+        }
+        else {
+            compt = 0;
+            err = 1;
+            break;
+        }
+    }
+    if(err == 0){
+        nom[compt-1] = '_';
+        nom[compt] = 'B';
+        nom[compt+1] = 'D';
+        nom[compt+2] = 'D';
+        DIR* rep = NULL;
+        rep = opendir(nom);
+        if (rep == NULL){
+            printf("la bdd indique n'existe pas\n", nom);
+            return;
+        }
+        else{
+            printf("Vous avez ouvert la bdd %s\n", nom);
+            closedir(rep);
+            nom[compt+3] = '\\';
+            char nom2 [1000] = {0};
+            printf("indiquez la table a modifier : ");
+            fgets(nom2, sizeof(nom), stdin);
+            printf("Vous avez ecris : %s \n",nom2);
+            int i = 0;
+            int compt = 0;
+            int err = 0;
+            for(i ; i<= 100 ; i++){
+                if((nom2[i] <= 90 && nom2[i] >= 65) || (nom2[i] <= 122 && nom2[i] >= 97) || (nom2[i] == 10)){
+                    compt ++;
+                }
+                else if(nom2[i] == 0){
+                    break;
+                }
+                else {
+                    compt = 0;
+                    err = 1;
+                    break;
+                }
+            }
+            if(err == 0){
+                nom2[compt-1] = '.';
+                nom2[compt] = 'y';
+                nom2[compt+1] = 'm';
+                nom2[compt+2] = 'l';
+                strcat(nom, nom2);
+                FILE* fichier = NULL;
+                fichier = fopen(nom, "r");
+                if(fichier != NULL){
+                    printf("la table %s existe deja\n", nom);
+                    //A compléter
+                    fclose(fichier);
+                }else{
+                    printf("La table %s n'existe pas\n", nom);
+                    return;
+                }
+            }
+            else{
+                printf("Le mot contient des caracteres interdits \n");
+            }
+        }
+    }
+    else{
+        printf("Le mot contient des caracteres interdits \n");
+    }
+}

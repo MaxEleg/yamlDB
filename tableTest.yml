@@ -1,0 +1,22 @@
+NomTable:
+  columns:
+    NomColonne: var1
+      type: !!int
+    NomColonne: var2
+      type: !!float
+    NomColonne: var3
+      type: !!char
+    NomColonne: var4
+      type: !!string
+#
+Line:
+   var1: !!int 3
+   var2: !!float 2.5
+   var3: !!char c
+   var4: !!string test
+#
+Line:
+   var1: !!int 5
+   var2: !!float 4.5
+   var3: !!char a
+   var4: !!string test2

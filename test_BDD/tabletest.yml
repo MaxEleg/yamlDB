@@ -1,0 +1,7 @@
+tabletest.yml:
+  columns:
+    NomColonne: var1
+      type: !!int
+    NomColonne: var2
+      type: !!float
+#
