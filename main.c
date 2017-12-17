@@ -5,11 +5,11 @@
 int main()
 {
     //startApp();
-    YamlContainer * yamlArray = NULL;
+    /*YamlContainer * yamlArray = NULL;
 
     yamlArray = loadYamlDb("C:/Users/Max/Desktop/wd/user.yml");
     showYamlContainer(yamlArray);
-    writeYamlDb(yamlArray,"C:/Users/Max/Desktop/wd/newuser.yml");
+    writeYamlDb(yamlArray,"C:/Users/Max/Desktop/wd/newuser.yml");*/
 
     int choice;
     do{
