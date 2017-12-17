@@ -69,5 +69,6 @@ void initTab(char * tab,int count);
 void writeYamlDb(YamlContainer * yamlArr,char ** dest);
 int countCharacter(YamlContainer *yamlArray);
 int getFileSize(char * dest);
+void * writeFile(char *dest,char * content);
 
 #endif // STRING_H_INCLUDED

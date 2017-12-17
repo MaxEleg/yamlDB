@@ -6,7 +6,9 @@ YamlContainer * loadYamlDb(char* dest){
 	int i;
 	int j;
 	int k;
+    int n;
 
+    n=0;
 	char * content = readFile(dest);
 	YamlContainer * yamlArray = newEmptyArrayYamlContainer();
 	YamlObject * object = NULL;
@@ -25,10 +27,14 @@ YamlContainer * loadYamlDb(char* dest){
 				char **  data = split(line[j], ':');
 				char * name = data[0]; //we extract all data
 				char * value = data[1];
-				keys[j].name = name;
-				keys[j].value = value;
-				object->countKey = j;
+				if(my_strlen(name)>1){ //if there is a value on the name
+                    keys[n].name = name;
+                    keys[n].value = value;
+                    object->countKey = j;
+                    n++;
+				}
 			}
+			n=0;
 			object->keys = keys;
 			arrayAdd(yamlArray, object);
 		}
@@ -111,14 +117,6 @@ YamlObject * arrayGet(YamlContainer* yamlContainer, int index) {
 	}
 }
 
-void showArr(YamlContainer * arr) {
-	int i = 0;
-
-	for (i = 0; i < arraySize(arr); i++) {
-	}
-	printf("capacity : %d  size %d \n", arr->capacity, arraySize(arr));
-
-}
 void showKeys(YamlKey * keys,int size) {
 	int i = 0;
 
@@ -147,11 +145,9 @@ int countCharacter(YamlContainer *yamlArray){
             value = keys[j].value;
 		    if(name != NULL){
                 total += my_strlen(name);
-                printf("%s",name);
             }
 		    if(value != NULL){
                 total += my_strlen(value);
-                printf("%s",value);
             }
 		}
 	}
@@ -161,8 +157,51 @@ int countCharacter(YamlContainer *yamlArray){
 
 void writeYamlDb(YamlContainer * yamlArr,char ** dest){
     int nbrChar;
+	int i;
+	int j;
+	int size;
+    int nbrObj;
+    char * content;
 
-    nbrChar = countCharacter(yamlArr);
-    printf("Number char to write => %d\n",nbrChar);
+    nbrChar = countCharacter(yamlArr)*2;
+	content = malloc(sizeof(char)*nbrChar);
+	initTab(content,nbrChar);
+	nbrObj = arraySize(yamlArr);
 
+	for (i = 0; i < nbrObj; i++) {
+		YamlKey * keys = yamlArr->tab[i].keys;
+		size = yamlArr->tab[i].countKey;
+
+        for (j = 0; j < size; j++) {
+            if(j==0){
+                printf("%s:\n", keys[j].name);
+
+                strcat(content, keys[j].name);
+                strcat(content, ":\n");
+            }else{
+                printf("\t%s:%s\n", keys[j].name, keys[j].value);
+                strcat(content, "   ");
+                strcat(content, keys[j].name);
+                strcat(content, ":");
+                strcat(content, keys[j].value);
+                strcat(content, "\n");
+            }
+            if(j == size-1){
+                strcat(content, "#\n");
+            }
+        }
+	}
+    writeFile(dest,content);
+}
+
+void deleteObjYaml(YamlContainer * yamlArr, int at){
+    YamlContainer * newContainer = newEmptyArrayYamlContainer();
+
+    int i = 0;
+
+    for (i=0;i<yamlArr->size;i++){
+        if(i != at){
+            arrayAdd(newContainer, arrayGet(yamlArr,i));
+        }
+    }
 }

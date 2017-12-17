@@ -19,6 +19,19 @@ char * readFile(char *dest) {
 	return buff;
 }
 
+void * writeFile(char *dest,char * content) {
+    FILE *fptr;
+    fptr = fopen(dest, "w");
+    if(fptr == NULL){
+        printf("Error!");
+        exit(1);
+    }
+
+    fprintf(fptr,"%s", content);
+    printf("Le la base de donnée a ete mise a jour !");
+    fclose(fptr);
+}
+
 char	**split(char *str, char separator)
 {
 	int	i;
@@ -82,6 +95,5 @@ int getFileSize(char * dest){
 		count++;
 	}
 	fclose(fptr);
-
 	return count;
 }
