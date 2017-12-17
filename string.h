@@ -65,5 +65,7 @@ char * readFile(char *dest);
 char	**split(char *str, char separator);
 int my_strlen(char*s);
 void initTab(char * tab,int count);
+void writeYamlDb(YamlContainer * yamlArr,char ** dest);
+int countCharacter(YamlContainer *yamlArray);
 
 #endif // STRING_H_INCLUDED

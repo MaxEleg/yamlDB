@@ -9,6 +9,7 @@ int main()
 
     yamlArray = loadYamlDb("C:/Users/Max/Desktop/wd/user.yml");
     showYamlContainer(yamlArray);
+    writeYamlDb(yamlArray,"C:/Users/Max/Desktop/wd/newuser.yml");
 
     return 0;
 }

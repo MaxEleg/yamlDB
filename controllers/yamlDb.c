@@ -125,5 +125,44 @@ void showKeys(YamlKey * keys,int size) {
 	for (i = 0; i < size; i++) {
 		printf("%s -> %s \n", keys[i].name, keys[i].value);
 	}
+}
+
+int countCharacter(YamlContainer *yamlArray){
+	int i;
+	int nbrKey;
+    int total;
+    int j;
+    char *name;
+    char *value;
+
+    j=0;
+    total = 0;
+	int nbrObj = arraySize(yamlArray);
+	for (i = 0; i < nbrObj; i++) {
+		YamlKey * keys = yamlArray->tab[i].keys;
+		nbrKey = yamlArray->tab[i].countKey;
+
+		for(j=0;j<nbrKey;j++){
+            name = keys[j].name;
+            value = keys[j].value;
+		    if(name != NULL){
+                total += my_strlen(name);
+                printf("%s",name);
+            }
+		    if(value != NULL){
+                total += my_strlen(value);
+                printf("%s",value);
+            }
+		}
+	}
+	printf("\n%d\n",total);
+	return total;
+}
+
+void writeYamlDb(YamlContainer * yamlArr,char ** dest){
+    int nbrChar;
+
+    nbrChar = countCharacter(yamlArr);
+    printf("Number char to write => %d\n",nbrChar);
 
 }
