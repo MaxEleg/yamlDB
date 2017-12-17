@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1513532260 source:c:\users\max\desktop\esgi\projets\yamldb\main.c
+	<stdio.h>
+	<stdlib.h>
+	"./string.h"
+
+1513533625 c:\users\max\desktop\esgi\projets\yamldb\string.h
+	<math.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<assert.h>
+	<limits.h>
+	<stdbool.h>
+	<stdio.h>
+	<string.h>
+
+1513533992 source:c:\users\max\desktop\esgi\projets\yamldb\controllers\core.c
+	"../header.h"
+
+1513532260 source:c:\users\max\desktop\esgi\projets\yamldb\controllers\database.c
+	<stdio.h>
+	<stdlib.h>
+	<dirent.h>
+	"string.h"
+
+1513532260 source:c:\users\max\desktop\esgi\projets\yamldb\controllers\yamldb.c
+	"../string.h"
+
+1513533625 c:\users\max\desktop\esgi\projets\yamldb\header.h
+	<math.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<assert.h>
+	<limits.h>
+	<stdbool.h>
+	<stdio.h>
+	<string.h>
+

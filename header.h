@@ -67,5 +67,6 @@ int my_strlen(char*s);
 void initTab(char * tab,int count);
 void writeYamlDb(YamlContainer * yamlArr,char ** dest);
 int countCharacter(YamlContainer *yamlArray);
+int getFileSize(char * dest);
 
 #endif // STRING_H_INCLUDED

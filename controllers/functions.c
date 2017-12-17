@@ -1,8 +1,10 @@
-#include "../string.h";
+#include "../header.h";
 
 char * readFile(char *dest) {
 	FILE *fp;
-	char *buff = (char*)malloc(sizeof(char) * 600);
+	int length = getFileSize(dest);
+
+	char *buff = (char*)malloc(sizeof(char) * length);
 	int i;
 
 	i = 0;
@@ -68,4 +70,18 @@ void initTab(char * tab,int count) {
 	for (i = 0; i < count; i++) {
 		tab[i] = '\0';
 	}
+}
+
+int getFileSize(char * dest){
+	int count=0;
+	FILE *fptr;
+    char ch;
+
+	fptr=fopen(dest,"r");
+	while((ch=fgetc(fptr))!=EOF) {
+		count++;
+	}
+	fclose(fptr);
+
+	return count;
 }

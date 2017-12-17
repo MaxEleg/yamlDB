@@ -1,3 +1,5 @@
+#include "../header.h"
+
 void startApp(){
 
     int choice = 0;

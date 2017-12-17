@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <dirent.h>
-#include "string.h";
+#include "../header.h";
 
 void AddBDD(){
     char nom [1000] = {0};
