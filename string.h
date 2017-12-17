@@ -2,6 +2,7 @@
 #define STRING_H_INCLUDED
 int err;
 int compt;
+char colonne;
 char nom;
 char systemRM;
 int c;
@@ -13,7 +14,7 @@ void DeleteBDD();
 void AddTable();
 void DeleteTable();
 void CleanBuffer();
-char StringWithSpace();
-char StringWithoutSpace();
+void WriteTable(char*);
+void startApp();
 
 #endif // STRING_H_INCLUDED

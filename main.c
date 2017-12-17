@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "./string.h";
 #include "string.c";
-#include "string.h";
 
 int main()
 {
@@ -25,4 +25,5 @@ int main()
     if(choice == 5){
         DeleteBDD();
     }
+    return 0;
 }
