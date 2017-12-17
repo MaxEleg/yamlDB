@@ -25,7 +25,7 @@ void DeleteBDD();
 void AddTable();
 void DeleteTable();
 void CleanBuffer();
-void WriteTable(char*);
+void WriteTable(char*,char*);
 void startApp();
 void AddBDD();
 

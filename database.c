@@ -183,7 +183,7 @@ void AddTable(){
             char nom2 [1000] = {0};
             printf("indiquez la table a creer : ");
             fgets(nom2, sizeof(nom), stdin);
-            printf("Vous avez ecris : %s \n",nom);
+            printf("Vous avez ecris : %s \n",nom2);
             int i = 0;
             int compt = 0;
             int err = 0;
@@ -215,7 +215,7 @@ void AddTable(){
                 fichier = fopen(nom, "w");
                 if (fichier != NULL){
                     fclose(fichier);
-                    WriteTable(nom);
+                    WriteTable(nom, nom2);
                     printf("la table a ete creer\n", nom);
                     return;
                 }
@@ -320,16 +320,19 @@ void DeleteTable(){
     }
 }
 
-void WriteTable(char* nom){
-    printf("%s  test\n", nom);
+void WriteTable(char* nom, char* nom2){
     FILE* fichier = NULL;
     fichier = fopen(nom, "r+");
-    fputs("NomTable:\n  columns:\n", fichier);
     char colonne [100] = {0};
+    char NameTable [100] = {0};
     int i = 0;
+    int j = 0;
     int compt = 0;
     int err = 0;
     int choice = 0;
+    compt = 0;
+    strcat(nom2, ":\n  columns:\n");
+    fputs(nom2, fichier);
     do {
         for(i = 0; i<= 100; i++){
             colonne[i] = 0;
@@ -393,6 +396,7 @@ void WriteTable(char* nom){
         CleanBuffer();
         }while(choice != 1 && choice != 2 && choice != 3 && choice != 4);
         do{
+        CleanBuffer();
         printf("Tapez 1 pour un rajouter une colonne \nTapez 2 pour arreter\n");
         scanf("%d", &choice);
         printf("Vous avez selectionnez : %d \n",choice);
@@ -401,3 +405,4 @@ void WriteTable(char* nom){
     }while(choice != 2);
     fclose(fichier);
 }
+
